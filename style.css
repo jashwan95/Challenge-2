@@ -1,0 +1,47 @@
+@font-face { 
+	font-family: timeburner;
+	src: url("timeburnerbold-pegr-webfont.woff");
+}
+
+html, body {
+    font-family: timeburner;
+    color: #FFFFFF;
+    height: 100%;
+    margin: 0;
+}
+
+#main {      
+    height: 100%;
+    background: linear-gradient(#232526, #414345);
+}
+
+.container {
+	margin: auto;
+	width: 60%;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.5);;
+	padding: 20px;
+	text-align: center;
+	border-radius: 20px;
+}
+.titel {
+	font-size: 5em;	
+	padding: 20px;
+	margin: 0;
+}
+h1 {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+h1 span#date {
+	display: block;
+	font-size: 2.5em;
+}
+h1 span#time {
+	font-size: 4em;
+}
+
+.trans {
+	opacity: 0;
+}
