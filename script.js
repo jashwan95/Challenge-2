@@ -1,7 +1,7 @@
 /**
  * Start clock
  */
- function initClock() {
+function initClock() {
 
 	// init
 	renderClock();
@@ -24,7 +24,7 @@ function renderClock() {
 	var sep   = flashSeperator(time['seconds']);
 
 	// display date
-	date.innerHTML = time['day'] + ' ' +  getCurrentMonth(time['month']);
+	date.innerHTML = getCurrentday(time['day']) + ' ' + time['date'] + ' ' +  getCurrentMonth(time['month']) + ' ' + time['year'];
 
 	// display time
 	clock.innerHTML = time['hours'] + sep +  time['minutes'];
@@ -59,7 +59,9 @@ function getCurrentTime(date) {
 	time['minutes'] = date.getMinutes(),
 	time['hours']   = date.getHours();
 	time['month']   = date.getMonth();
-	time['day']     = date.getDate();
+	time['date']    = date.getDate();	
+	time['day']     = date.getDay();	
+	time['year']    = date.getFullYear();
 
 	// hours: add leading zero
 	if (time['hours'] < 10) {
@@ -85,24 +87,71 @@ function getCurrentMonth(monthNumber) {
 	return months[monthNumber];
 }
 
+/**
+ * Get current Month
+ * @param integer - month number
+ * @return string
+ */
+ function getCurrentday(dayNumber) {
+	var days = ['ma', 'di', 'wo', 'do', 'vr', 'za', 'zo'];
+
+	return days[dayNumber - 1];
+}
+
 // start
 initClock();
 
 var klokie = new Date();
-
 var uren = klokie.getHours();
+
+var bgColor = document.getElementById('main');
+var dagTijd = document.getElementById('dagTijd');
+
+var diff = document.getElementById('diff');
+var tijdvak = document.getElementById('tijdvak');
+
+var nacht = [6, 5, 4, 3 ,2, 1];
+
 if (uren >= 0 && uren < 6) {
-	document.getElementById('main').style.background = 'linear-gradient(#0b486b, #f56217)';
+	bgColor.style.background = 'linear-gradient(#000000, #434343)';
+	dagTijd.innerHTML = 'nacht';
+	diff.innerHTML = 'Over ' + nacht[uren] + ' uren';
+	tijdvak.innerHTML = 'ochtend';
 } else if (uren >= 6 && uren < 12) {
-	document.getElementById('main').style.background = 'linear-gradient(#56ccf2, #2f80ed)';
+	bgColor.style.background = 'linear-gradient(#0b486b, #f56217)';
+	dagTijd.innerHTML = 'ochtend';
+	diff.innerHTML = 'Over ' + nacht[uren - 6] + ' uren';
+	tijdvak.innerHTML = 'middag';
 } else if (uren >= 12 && uren < 18) {
-	document.getElementById('main').style.background = 'linear-gradient(#0b486b, #f56217)';
+	bgColor.style.background = 'linear-gradient(#56ccf2, #2f80ed)';
+	dagTijd.innerHTML = 'middag';
+	diff.innerHTML = 'Over ' + nacht[uren - 12] + ' uren';
+	tijdvak.innerHTML = 'avond';
 } else if (uren >= 18) {
-	document.getElementById('main').style.background = 'linear-gradient(#232526, #414345)';
+	bgColor.style.background = 'linear-gradient(#0f2027, #203a43, #2c5364)';
+	dagTijd.innerHTML = 'avond';
+	diff.innerHTML = 'Over ' + nacht[uren - 18] + ' uren';
+	tijdvak.innerHTML = 'nacht';
 }
 
-
-
+switch (uren) {
+	case 5:
+    	diff.innerHTML = 'Over ' + nacht[uren] + ' uur';
+		tijdvak.innerHTML = 'ochtend';
+    break;
+	case 11:
+    	diff.innerHTML = 'Over ' + nacht[uren - 6] + ' uur';
+		tijdvak.innerHTML = 'middag';
+    break;
+	case 17:
+    	diff.innerHTML = 'Over ' + nacht[uren - 12] + ' uur';
+		tijdvak.innerHTML = 'avond';
+    break;
+	case 23:
+    	diff.innerHTML = 'Over ' + nacht[uren - 18] + ' uur';
+		tijdvak.innerHTML = 'nacht';
+    break;
+}
 
 
 
