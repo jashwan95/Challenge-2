@@ -2,11 +2,7 @@
  * Start clock
  */
 function initClock() {
-
-	// init
 	renderClock();
-
-	// run every second
 	setInterval(renderClock, 1000);
 }
 
@@ -14,19 +10,12 @@ function initClock() {
  * Render clock
  */
 function renderClock() {
-
-	// get HTML elements
 	var clock = document.getElementById('time');
 	var date  = document.getElementById('date');
-
-	// time logic
 	var time  = getCurrentTime(new Date());
 	var sep   = flashSeperator(time['seconds']);
 
-	// display date
 	date.innerHTML = getCurrentday(time['day']) + ' ' + time['date'] + ' ' +  getCurrentMonth(time['month']) + ' ' + time['year'];
-
-	// display time
 	clock.innerHTML = time['hours'] + sep +  time['minutes'];
 }
 
@@ -38,7 +27,6 @@ function renderClock() {
 function flashSeperator(seconds) {
 	var sepClass = '';
 
-	// toggle class
 	if (seconds % 2 === 1) {
 		sepClass = ' class="trans"';
 	}
@@ -54,7 +42,6 @@ function flashSeperator(seconds) {
 function getCurrentTime(date) {
 	var time = [];
 
-	// fill array
 	time['seconds'] = date.getSeconds();
 	time['minutes'] = date.getMinutes(),
 	time['hours']   = date.getHours();
@@ -63,12 +50,9 @@ function getCurrentTime(date) {
 	time['day']     = date.getDay();	
 	time['year']    = date.getFullYear();
 
-	// hours: add leading zero
 	if (time['hours'] < 10) {
 		time['hours'] = '0' + time['hours'];
 	}
-
-	// minutes: add leading zero
 	if (time['minutes'] < 10) {
 		time['minutes'] = '0' + time['minutes'];
 	}
@@ -82,7 +66,7 @@ function getCurrentTime(date) {
  * @return string
  */
 function getCurrentMonth(monthNumber) {
-	var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	var months = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
 
 	return months[monthNumber];
 }
@@ -98,18 +82,14 @@ function getCurrentMonth(monthNumber) {
 	return days[dayNumber - 1];
 }
 
-// start
 initClock();
 
 var klokie = new Date();
 var uren = klokie.getHours();
-
 var bgColor = document.getElementById('main');
 var dagTijd = document.getElementById('dagTijd');
-
 var diff = document.getElementById('diff');
 var tijdvak = document.getElementById('tijdvak');
-
 var nacht = [6, 5, 4, 3 ,2, 1];
 
 if (uren >= 0 && uren < 6) {
@@ -152,6 +132,3 @@ switch (uren) {
 		tijdvak.innerHTML = 'nacht';
     break;
 }
-
-
-

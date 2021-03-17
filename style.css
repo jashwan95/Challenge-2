@@ -9,7 +9,6 @@ html, body {
     margin: 0;
 	height: 100%;
 }
-
 .titel {
 	grid-area: titel;
 }
@@ -25,11 +24,9 @@ html, body {
 .verschil {
 	grid-area: verschil;
 }
-
 #main {   
 	height: 100%;   
 }
-
 .container {
 	margin: 20px auto 20px auto;
 	width: 60%;
@@ -51,15 +48,12 @@ h1 {
 	text-transform: uppercase;
 	text-align: center;
 }
-
 h1 span#date {
 	display: block;
 }
-
 h1 span#diff {
 	display: block;
 }
-
 .trans {
 	opacity: 0;
 }
@@ -136,7 +130,6 @@ h1 span#diff {
 		width: 60%;
 		font-size: 2em;
 	}
-
 }
 
 @media only screen and (min-width: 1920px) {
@@ -172,5 +165,4 @@ h1 span#diff {
 	.verschil {
 		margin-right: 20%;
 	}
-
 }
