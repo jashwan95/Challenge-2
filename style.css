@@ -112,7 +112,7 @@ h1 span#diff {
 	}
 	.klok {
 		padding-top: 0;
-		font-size: 5em;
+		font-size: 4em;
 	}
 	.datum {
 		margin-top: 0;
@@ -122,13 +122,13 @@ h1 span#diff {
 		margin-top: 0;
 		margin-left: 30%;
 		width: 100%;
-		font-size: 2em;
+		font-size: 1.5em;
 	}
 	.verschil {
 		margin-top: 0;
 		margin-right: 15%;
 		width: 60%;
-		font-size: 2em;
+		font-size: 1.2em;
 	}
 }
 
@@ -144,10 +144,10 @@ h1 span#diff {
 			  "dagtijd verschil datum"; 
 	}
 	.titel {
-		font-size: 8em;
+		font-size: 6em;
 	}
 	.klok {
-		font-size: 8em;
+		font-size: 5em;
 		width: 80%;
 	}
 	.datum {
@@ -156,7 +156,7 @@ h1 span#diff {
 		width: 80%;
 	}
 	.dagTijden, .verschil {
-		font-size: 2.5em;
+		font-size: 2em;
 		width: 70%;
 	}
 	.dagTijden {
