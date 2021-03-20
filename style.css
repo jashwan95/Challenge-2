@@ -9,8 +9,8 @@ html, body {
     margin: 0;
 	height: 100%;
 }
-.titel {
-	grid-area: titel;
+.hoofd {
+	grid-area: hoofd;
 }
 .datum {
 	grid-area: datum;
@@ -28,7 +28,7 @@ html, body {
 	height: 100%;   
 }
 .container {
-	margin: 20px auto 20px auto;
+	margin: 10px auto 10px auto;
 	width: 60%;
 	overflow: hidden;
 	background-color: rgba(0, 0, 0, 0.5);;
@@ -36,13 +36,44 @@ html, body {
 	text-align: center;
 	border-radius: 20px;
 }
+.aarde {
+	position: absolute;
+	top: 80px;
+	left: 30px;
+	width: 80px;
+	animation: 10s spin-aarde linear infinite;
+}
+@keyframes spin-aarde {
+	to {
+		transform: rotate(360deg);
+	}
+}
+.mars {
+	position: absolute;
+	top: 80px;
+	right: 30px;
+	width: 80px;
+	animation: 10s spin-mars linear infinite;
+}
+@keyframes spin-mars {
+	to {
+		transform: rotate(-360deg);
+	}
+}
+.schip {
+	position: absolute;
+	top: 100px;
+	width: 60px;
+	animation: 3s vliegen1 infinite alternate ease-in-out;
+}
+
 .text {
 	margin: 5px;
 }
 .titel {
 	font-size: 1.5em;	
 	padding: 10px;
-	margin: 0;
+	margin: 0 0 80px 0;
 }
 h1 {
 	text-transform: uppercase;
@@ -64,13 +95,28 @@ h1 span#diff {
         grid-template-columns: 1fr 1fr;
       
         grid-template-areas: 
-              "titel titel"
+              "hoofd hoofd"
               "datum klok"
 			  "dagtijd verschil"; 
 	} 
+	.aarde {
+		top: 100px;
+		left: 30px;
+		width: 100px;
+	}
+	.mars {
+		top: 100px;
+		right: 30px;
+		width: 100px;
+	}
+	.schip {
+		top: 130px;
+		width: 80px;
+		animation: 3s vliegen2 infinite alternate ease-in-out;
+	}
 	.titel {
-		font-size: 3em;
-		padding-top: 80px;
+		font-size: 2.5em;
+		padding-top: 20px;
 		height: 30%;
 	}
 	.container {
@@ -80,7 +126,7 @@ h1 span#diff {
 		font-size: 4em;
 	}
 	.datum {
-		font-size: 2em;
+		font-size: 1.5em;
 	}
 	.dagTijden {
 		font-size: 1.3em;
@@ -96,14 +142,29 @@ h1 span#diff {
         grid-template-columns: 1fr 1fr 1fr;
       
         grid-template-areas: 
-              "titel titel titel"
+              "hoofd hoofd hoofd"
               "klok klok klok"
 			  "datum datum datum"
 			  "dagtijd verschil verschil"; 
-	} 
+	}
+	.aarde {
+		top: 100px;
+		left: 200px;
+		width: 130px;
+	}
+	.mars {
+		top: 100px;
+		right: 200px;
+		width: 130px;
+	}
+	.schip {
+		top: 140px;
+		width: 120px;
+		animation: 3s vliegen3 infinite alternate ease-in-out;
+	}
 	.titel {
 		font-size: 3.5em;
-		padding-top: 80px;
+		padding-top: 20px;
 		height: 30%;
 	}
 	.container{
@@ -138,10 +199,25 @@ h1 span#diff {
         grid-template-columns: 1fr 1fr 1fr;
       
         grid-template-areas: 
-              "titel titel titel"
+              "hoofd hoofd hoofd"
               "klok klok datum"
 			  "dagtijd verschil datum"
 			  "dagtijd verschil datum"; 
+	}
+	.aarde {
+		top: 150px;
+		left: 300px;
+		width: 200px;
+	}
+	.mars {
+		top: 150px;
+		right: 300px;
+		width: 200px;
+	}
+	.schip {
+		top: 200px;
+		width: 200px;
+		animation: 3s vliegen4 infinite alternate ease-in-out;
 	}
 	.titel {
 		font-size: 6em;
@@ -164,5 +240,50 @@ h1 span#diff {
 	}
 	.verschil {
 		margin-right: 20%;
+	}
+}
+
+@keyframes vliegen1 {
+	0% { 
+		left: 110px; 
+	}
+	50% {
+		width: 65px;
+	}
+	100% {
+		left: 200px; 
+	}
+}
+@keyframes vliegen2 {
+	0% { 
+		left: 140px; 
+	}
+	50% {
+		width: 100px;
+	}
+	100% {
+		left: 620px; 
+	}
+}
+@keyframes vliegen3 {
+	0% { 
+		left: 350px; 
+	}
+	50% {
+		width: 150px;
+	}
+	100% {
+		left: 900px; 
+	}
+}
+@keyframes vliegen4 {
+	0% { 
+		left: 520px; 
+	}
+	50% {
+		width: 250px;
+	}
+	100% {
+		left: 1200px; 
 	}
 }
